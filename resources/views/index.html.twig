@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+	<head>
+		<title>Numbers task</title>
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+	</head>
+	<body>
+		<div class="container">
+
+			<div class="col-md-12">
+				<h1 class="text-center">"Numbers" task</h1>
+			</div>
+
+			<div class="col-md-12">
+				<table class="table table-bordered">
+					<thead>
+						<tr>
+							<th scope="col">ID</th>
+							<th scope="col">Numbers</th>
+							<th scope="col">Is Ascending</th>
+						</tr>
+					</thead>
+					<tbody>
+						{% for numbers in numbersCollection %}
+							<tr>
+								<td>
+									{{ numbers.id }}
+								</td>
+								<td>
+									{{ numbers.numbers|join(', ') }}
+								</td>
+								<td {{ numbers.isAscending ? 'class="table-success"' : '' }}>
+									{{ numbers.isAscending ? 'Ascending' : '-' }}
+								</td>
+							</tr>
+						{% endfor %}
+					</tbody>
+				</table>
+			</div>
+
+		</div>
+	</body>
+</html>
